@@ -1,23 +1,21 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 
-export default function EventItem() {
+export default function EventItem({ name, location, time, imageUrl }) {
   return (
     <View style={styles.eventItem}>
       <Image
         style={styles.image}
-        source={{
-          uri: "https://reactnative.dev/img/tiny_logo.png",
-        }}
+        source={{ uri: imageUrl }}
         resizeMode="cover" // cropped by size
       />
       <View style={styles.overlay}>
-        <Text style={styles.overlayText}>March 21st</Text>
+        <Text style={styles.overlayText}>{time}</Text>
       </View>
-      <Text style={styles.eventName}>Event Name</Text>
+      <Text style={styles.eventName}>{name}</Text>
       <View>
-        <Text style={styles.eventDetail}>Location: West Georgia</Text>
-        <Text style={styles.eventDetail}>Time: March 21st</Text>
+        <Text style={styles.eventDetail}>Location: {location}</Text>
+        <Text style={styles.eventDetail}>Time: {time}</Text>
       </View>
     </View>
   );
