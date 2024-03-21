@@ -1,14 +1,20 @@
 import GradientBackground from '../components/Background'
+import PostItem from '../components/PostItem'
 import { StyleSheet, Text, View, FlatList,Button,SafeAreaView,Alert, } from 'react-native'
 import React from 'react'
 
 export default function PostScreen() {
-//  const users = userPostsList();
+  const posts = [{id: '1', name: 'test', avatar: require("../assets/favicon.png")},
+                {id: '2', name: 'test', avatar: require("../assets/favicon.png")},
+                ];
   return (
     <GradientBackground>
     <View style={styles.container}>
-      <FlatList style={styles.postcontianer}
-//      data = {users}
+      <FlatList style={styles.listContainer}
+      data = {posts}
+      renderItem={({ item }) => (
+        <PostItem postItemname={item.name} postitemavator={item.avatar} />
+      )}
       />
       <Text>PostScreen</Text>
     </View>
@@ -22,7 +28,8 @@ const styles = StyleSheet.create({
  //   background:background,
     justifyContent:"center",
   },
-  postcontianer:{
-
+  listContainer:{
+    marginTop:30,
+    marginBottom:30,
   },
 })
