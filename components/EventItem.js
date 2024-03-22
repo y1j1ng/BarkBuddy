@@ -1,5 +1,11 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Alert } from "react-native";
 import React from "react";
+import PressableButton from "./PressableButton";
+import { colors } from "../helper/Color";
+
+const joinHandler = () => {
+  Alert.alert("Successfully Joined!");
+};
 
 export default function EventItem({ name, location, time, imageUrl }) {
   return (
@@ -17,6 +23,13 @@ export default function EventItem({ name, location, time, imageUrl }) {
         <Text style={styles.eventDetail}>Location: {location}</Text>
         <Text style={styles.eventDetail}>Time: {time}</Text>
       </View>
+
+      <PressableButton
+        backgroundColor={colors.backgroundlight}
+        onPress={joinHandler}
+      >
+        <Text style={styles.buttonText}>Join</Text>
+      </PressableButton>
     </View>
   );
 }
@@ -44,10 +57,15 @@ const styles = StyleSheet.create({
   },
   eventName: {
     fontSize: 30,
+    color: "#ffffff",
     paddingVertical: 10,
   },
   eventDetail: {
     fontSize: 20,
+    color: "#ffffff",
     paddingBottom: 5,
+  },
+  buttonText: {
+    color: "#ffffff",
   },
 });
