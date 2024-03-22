@@ -2,6 +2,7 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import EventItem from "../components/EventItem";
 import GradientBackground from "../components/Background";
+import EventDetail from "../components/EventDetail";
 
 // test datas
 const eventData = [
@@ -39,11 +40,12 @@ export default function EventScreen() {
   return (
     <GradientBackground>
       <View>
-        <FlatList
+        {/* <FlatList
           data={eventData}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
-        />
+        /> */}
+        <EventDetail></EventDetail>
       </View>
     </GradientBackground>
   );
