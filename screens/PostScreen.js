@@ -13,7 +13,7 @@ export default function PostScreen() {
       <FlatList style={styles.listContainer}
       data = {posts}
       renderItem={({ item }) => (
-        <PostItem postItemname={item.name} postitemavator={item.avatar} />
+        <PostItem postItemname={item.name}/>
       )}
       />
       <Text>PostScreen</Text>

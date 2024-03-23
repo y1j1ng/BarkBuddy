@@ -1,17 +1,41 @@
-import { StyleSheet, Text, View, Image } from 'react-native'; 
+import { StyleSheet, Text, View, Image, Dimensions } from 'react-native'; 
+// import UserAvatar from 'react-native-user-avatar';
 import React from 'react'
+import { colors } from '../helper/Color';
+import ImageViewer from './PostImageViewer';
 
-export default function PostItem(postItemname,postitemavator) {
 
+export default function PostItem({postItemname}) {
+
+  const images = [{id: '1', uri: require('../assets/1.png') },
+  {id: '2', uri: require('../assets/2.png') },
+  {id: '3', uri: require('../assets/3.png') },]
+  const {width}= Dimensions.get("window");
+
+  const dynamicStyles = StyleSheet.create({
+    postContainer: {
+      width: width, 
+      height: 400,
+    },
+  });
+ 
   return (
     <View style={styles.container}>
-      <View style={styles.userinformationContainer}>
-        <Image
-          source={postitemavator}
-          style={styles.avatorContainer}
-        />
-      <Text>{postItemname}</Text>
+      <View style={dynamicStyles.postContainer}>
+        <View style={styles.userinformationContainer}>
+          <Image
+            source={require('../assets/favicon.png')}
+            style={styles.avatorContainer}
+            resizeMode="cover" 
+          />
+          {/* <UserAvatar size={100} name="Avishay Bar" src= {postitemavator}  /> */}
+          <Text style={styles.Username}>{postItemname}</Text>
+        </View>
+        <ImageViewer images={images} />
       </View>
+      {/* <View style={styles.othercomments}>
+       <PostComments/>
+      </View> */}
     </View>
   )
 }
@@ -20,18 +44,34 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+    marginBottom:50,  
   },
   avatorContainer:{
-    width: 50,
-    height: 50,
-    borderRadius: 25,
+    width: 30,
+    height: 30,
+    borderRadius: 50,
+    backgroundColor:colors.backgroundlight,
+    marginBottom:20,
   },
-  userinformationContainer:{
+  userinformationContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly', 
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    width: '100%', 
+    paddingLeft: 10, 
+  },
+  othercomments:{
+
+  },
+  Username:{
+    fontSize:16,
+    color:colors.fontcolortitle,
+    paddingLeft: 10, 
+    marginBottom:20,
   },
   listContainer:{
     marginTop:30,
     marginBottom:30,
   },
+
 })
