@@ -1,23 +1,40 @@
 import GradientBackground from '../components/Background'
 import PostItem from '../components/PostItem'
-import { StyleSheet, Text, View, FlatList,Button,SafeAreaView,Alert, } from 'react-native'
-import React from 'react'
+import PostComments from '../components/PostComments'
+import CustomButton from '../components/PressableButton'
+import { StyleSheet, Text, View, FlatList,Button,SafeAreaView,Alert, Pressable, } from 'react-native'
+import React, { useState } from 'react';
 
 export default function PostScreen() {
+  const [ClickComment, setClickComment] = useState(false);
+
   const posts = [{id: '1', name: 'test', avatar: require("../assets/favicon.png")},
                 {id: '2', name: 'test', avatar: require("../assets/favicon.png")},
                 ];
+
+  const comments =[{id: '1', name: 'test', avatar: require("../assets/favicon.png"),comments:"1"},
+                  {id: '2', name: 'test', avatar: require("../assets/favicon.png"),comments:"1"},
+                  {id: '3', name: 'test', avatar: require("../assets/favicon.png"),comments:"1"},]    
+                            
+  function handleClickComment(){
+    setClickComment(true);
+  }
   return (
     <GradientBackground>
-    <View style={styles.container}>
-      <FlatList style={styles.listContainer}
-      data = {posts}
-      renderItem={({ item }) => (
-        <PostItem postItemname={item.name}/>
-      )}
-      />
-      <Text>PostScreen</Text>
-    </View>
+      <View style={styles.container}>
+        <FlatList
+          style={styles.listContainer}
+          data={posts}
+          renderItem={({ item }) => (
+            <PostItem postItemname={item.name} />
+          )}
+          keyExtractor={item => item.id}
+        />
+        {/* <CustomButton title={"See All Comments Here"} onPress={handleClickComment} />
+        {ClickComment && (
+          <PostComments comments={comments} />
+        )} */}
+      </View>
     </GradientBackground>
   )
 }
@@ -29,7 +46,7 @@ const styles = StyleSheet.create({
     justifyContent:"center",
   },
   listContainer:{
-    marginTop:30,
-    marginBottom:30,
+    marginTop:0,
+    marginBottom:0,
   },
 })
