@@ -1,7 +1,7 @@
 import GradientBackground from '../components/Background'
 import PostItem from '../components/PostItem'
 import PostComments from '../components/PostComments'
-import CustomButton from '../components/PressableButton'
+import PressableButton from '../components/PressableButton'
 import { StyleSheet, Text, View, FlatList,Button,SafeAreaView,Alert, Pressable, } from 'react-native'
 import React, { useState } from 'react';
 
@@ -28,12 +28,13 @@ export default function PostScreen() {
           renderItem={({ item }) => (
             <PostItem postItemname={item.name} />
           )}
-          keyExtractor={item => item.id}
-        />
-        {/* <CustomButton title={"See All Comments Here"} onPress={handleClickComment} />
+          keyExtractor={item => item.id}       
+          ListFooterComponent = {
+          <PressableButton title={"See All Comments Here"} onPress={handleClickComment} />}
+          />
         {ClickComment && (
-          <PostComments comments={comments} />
-        )} */}
+          <PostComments comments={comments} setClickComment={setClickComment} />
+        )}
       </View>
     </GradientBackground>
   )
