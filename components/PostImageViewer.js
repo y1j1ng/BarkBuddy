@@ -8,7 +8,7 @@ const ImageViewer = ({ images }) => {
   // console.log('ImageViewer images prop:', images);
   return ( 
     <Swiper
-      style={{ height: 300 }}
+      style={{ height: 300, margin: 0, padding: 0 }}
       showsButtons={false}
       autoplay={false}
     >
@@ -16,7 +16,7 @@ const ImageViewer = ({ images }) => {
         <Image
           key={img.id}
           source={img.uri} 
-          style={{ width: width, height: 300 }}
+          style={{ width: width, height: 300, margin: 0 }}
           resizeMode="cover"
         />
       ))}

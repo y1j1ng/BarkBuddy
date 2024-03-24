@@ -8,7 +8,8 @@ import ImageViewer from './PostImageViewer';
 
 
 export default function PostItem({postItemname}) {
-
+  const describe = "Here is my favorate avatar genarate by my dog!"
+  const likenumbers = "90"
   const images = [{id: '1', uri: require('../assets/1.png') },
                   {id: '2', uri: require('../assets/2.png') },
                   {id: '3', uri: require('../assets/3.png') },]
@@ -33,12 +34,14 @@ export default function PostItem({postItemname}) {
           />
           {/* <UserAvatar size={100} name="Avishay Bar" src= {postitemavator}  /> */}
           <Text style={styles.Username}>{postItemname}</Text>
-        </View>
+        </View >
         <ImageViewer images={images} />
-      </View>
+      </View >
+      <Text style={styles.describe}>{describe}</Text>
       <View style={styles.userinformationContainer}>
       <AntDesign name="hearto" size={24} color={colors.backgroundlight} style={styles.icon}/>
       <FontAwesome5 name="comment-alt" size={22} color={colors.backgroundlight} style={styles.icon}/>
+      <Text style={styles.textgenaral}>Liked by {likenumbers} users</Text>
     </View>
       {/* <View style={styles.othercomments}>
        <PostComments/>
@@ -85,6 +88,21 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   icon:{
-    margin:10,
+    marginleft:10,
+    marginRight:15,
+  },
+  textgenaral:{
+    fontSize:14,
+    color:colors.fontcolortitle,
+    paddingLeft: 10, 
+  },
+  describe:{
+    fontSize:14,
+    color:colors.fontcolortitle,
+    paddingLeft: 10, 
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    width: '100%', 
   },
 })
