@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   icon:{
-    marginleft:10,
+    marginLeft:10,
     marginRight:15,
   },
   textgenaral:{
