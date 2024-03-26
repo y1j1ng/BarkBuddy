@@ -37,12 +37,13 @@ export default function PostItem({postItemname}) {
         </View >
         <ImageViewer images={images} />
       </View >
-      <Text style={styles.describe}>{describe}</Text>
+
       <View style={styles.userinformationContainer}>
       <AntDesign name="hearto" size={24} color={colors.backgroundlight} style={styles.icon}/>
       <FontAwesome5 name="comment-alt" size={22} color={colors.backgroundlight} style={styles.icon}/>
       <Text style={styles.textgenaral}>Liked by {likenumbers} users</Text>
     </View>
+    <Text style={styles.describe}>{describe}</Text>
       {/* <View style={styles.othercomments}>
        <PostComments/>
       </View> */}

@@ -84,6 +84,10 @@ const styles = StyleSheet.create({
   },
   storyUsername: {
   color:colors.fontcolor,
-
+  },
+  postCard: {
+    backgroundColor: 'rgba(255, 255, 255, 0.3)', // white with 30% opacity
+    borderRadius: 8, 
+    padding: 10, 
   },
 })
