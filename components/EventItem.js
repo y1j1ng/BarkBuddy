@@ -1,7 +1,10 @@
-import { StyleSheet, Text, View, Image, Alert } from "react-native";
+import { StyleSheet, Text, View, Image, Alert, Pressable } from "react-native";
 import React from "react";
 import PressableButton from "./PressableButton";
 import { colors } from "../helper/Color";
+import { useNavigation } from "@react-navigation/native"; // Import the useNavigation hook
+
+// const navigation = useNavigation(); // Access the navigation object using useNavigation hook
 
 const joinHandler = () => {
   Alert.alert("Successfully Joined!");
@@ -9,31 +12,33 @@ const joinHandler = () => {
 
 export default function EventItem({ name, location, time, imageUrl }) {
   return (
-    <View style={styles.eventItem}>
-      <Image
-        style={styles.image}
-        source={{ uri: imageUrl }}
-        resizeMode="cover" // cropped by size
-      />
-      <View style={styles.overlay}>
-        <Text style={styles.overlayText}>{time}</Text>
-      </View>
-      <Text style={styles.eventName}>{name}</Text>
-      <View style={styles.container}>
-        <View style={styles.eventDetailContainer}>
-          <Text style={styles.eventDetail}>Location: {location}</Text>
-          <Text style={styles.eventDetail}>Time: {time}</Text>
+    <Pressable>
+      <View style={styles.eventItem}>
+        <Image
+          style={styles.image}
+          source={{ uri: imageUrl }}
+          resizeMode="cover" // cropped by size
+        />
+        <View style={styles.overlay}>
+          <Text style={styles.overlayText}>{time}</Text>
         </View>
-        <View style={styles.joinButtonContainer}>
-          <PressableButton
-            backgroundColor={colors.backgroundlight}
-            onPress={joinHandler}
-          >
-            <Text style={styles.buttonText}>Join</Text>
-          </PressableButton>
+        <Text style={styles.eventName}>{name}</Text>
+        <View style={styles.container}>
+          <View style={styles.eventDetailContainer}>
+            <Text style={styles.eventDetail}>Location: {location}</Text>
+            <Text style={styles.eventDetail}>Time: {time}</Text>
+          </View>
+          <View style={styles.joinButtonContainer}>
+            <PressableButton
+              backgroundColor={colors.backgroundlight}
+              onPress={joinHandler}
+            >
+              <Text style={styles.buttonText}>Join</Text>
+            </PressableButton>
+          </View>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 }
 

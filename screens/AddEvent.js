@@ -5,7 +5,7 @@ import DatePicker from "../components/DatePicker";
 import PressableButton from "../components/PressableButton";
 import { colors } from "../helper/Color";
 
-export default function AddAnActivity() {
+export default function AddEvent({ navigation }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
@@ -46,7 +46,7 @@ export default function AddAnActivity() {
     const isEmpty =
       title.length === 0 ||
       description.length === 0 ||
-      location.length === 0 ||
+      // location.length === 0 ||
       date == null;
     if (isEmpty) {
       emptySubmissionAlert();
@@ -101,7 +101,7 @@ export default function AddAnActivity() {
         <View style={styles.buttonsContainer}>
           <PressableButton
             backgroundColor={colors.backgrounddark}
-            // onPress={() => navigation.goBack()}
+            onPress={() => navigation.goBack()}
           >
             <Text style={styles.text}>Cancel</Text>
           </PressableButton>

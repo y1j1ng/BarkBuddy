@@ -39,17 +39,17 @@ export default function EventScreen() {
     />
   );
   return (
-    // <GradientBackground>
-    <View>
-      {/* <FlatList
+    <GradientBackground>
+      <View>
+        <FlatList
           data={eventData}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
-        /> */}
-      {/* <EventDetail></EventDetail> */}
-      <AddEvent></AddEvent>
-    </View>
-    // </GradientBackground>
+        />
+        {/* <EventDetail></EventDetail> */}
+        {/* <AddEvent></AddEvent> */}
+      </View>
+    </GradientBackground>
   );
 }
 
