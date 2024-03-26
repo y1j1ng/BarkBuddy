@@ -5,8 +5,12 @@ import EventScreen from "../screens/EventScreen";
 import MapScreen from "../screens/MapScreen";
 import MessageScreen from "../screens/MessageScreen";
 import UserScreen from "../screens/UserScreen";
+import { Pressable } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
+
+function addEventHandler() {}
 
 export default function TabNavigator() {
   return (
@@ -23,6 +27,11 @@ export default function TabNavigator() {
         component={EventScreen}
         options={{
           headerTitle: "Events",
+          headerRight: () => (
+            <Pressable onPress={() => addEventHandler()} style={{ margin: 10 }}>
+              <Ionicons name="add-circle-outline" size={24} color="black" />
+            </Pressable>
+          ),
         }}
       />
       <Tab.Screen

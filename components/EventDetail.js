@@ -23,7 +23,8 @@ export default function EventDetail() {
         <View style={styles.container}>
           <View style={styles.eventDetailContainer}>
             <Text style={styles.eventDetail}>Location: Location1</Text>
-            <Text style={styles.eventDetail}>Time: Time1</Text>
+            <Text style={styles.eventDetail}>Time: 2024.05.10 Tue 13:30</Text>
+            <Text style={styles.eventDetail}>Organizer: j;alskdg a;sldkgj</Text>
           </View>
           <View style={styles.joinButtonContainer}>
             <PressableButton
