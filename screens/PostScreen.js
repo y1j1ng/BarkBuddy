@@ -21,7 +21,6 @@ export default function PostScreen() {
     const stories = [
     { id: '1', username: 'iiamcharlie', avatar: require("../assets/favicon.png") },
     { id: '2', username: 'iiamcharles', avatar: require("../assets/favicon.png") },
-    // Add more stories here
   ];
                             
   function handleClickComment(){
@@ -45,13 +44,13 @@ export default function PostScreen() {
           renderItem={({ item }) => (
             <PostItem postItemname={item.name} />
           )}
-          keyExtractor={item => item.id}       
-          ListFooterComponent = {
-          <PressableButton title={"See All Comments Here"} onPress={handleClickComment} />}
-          />
-        {ClickComment && (
-          <PostComments comments={comments} setClickComment={setClickComment} />
-        )}
+          keyExtractor={item => item.id}/>       
+        {/* //   ListFooterComponent = {
+        //   <PressableButton title={"See All Comments Here"} onPress={handleClickComment} />}
+        //   />
+        // {ClickComment && (
+        //   <PostComments comments={comments} setClickComment={setClickComment} />
+        // )} */}
       </SafeAreaView>
     </GradientBackground>
   )

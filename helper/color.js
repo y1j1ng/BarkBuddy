@@ -4,4 +4,5 @@ export const colors = {
   backgroundlight:"#bd1e51",
   fontcolortitle:"white",
   fontcolor:"white",
+  fontcolorpost:"#Eed8c9",
 };

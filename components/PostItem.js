@@ -1,15 +1,17 @@
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native'; 
+import { StyleSheet, Text, View, Image, Dimensions ,TouchableOpacity} from 'react-native'; 
 // import UserAvatar from 'react-native-user-avatar';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
-import React from 'react'
+import React, { useState } from 'react'
 import { colors } from '../helper/Color';
 import ImageViewer from './PostImageViewer';
 
 
 export default function PostItem({postItemname}) {
+  const [liked, setLiked] = useState(false);
   const describe = "Here is my favorate avatar genarate by my dog!"
   const likenumbers = "90"
+  const commentsnumbers ="90"
   const images = [{id: '1', uri: require('../assets/1.png') },
                   {id: '2', uri: require('../assets/2.png') },
                   {id: '3', uri: require('../assets/3.png') },]
@@ -39,9 +41,20 @@ export default function PostItem({postItemname}) {
       </View >
 
       <View style={styles.userinformationContainer}>
-      <AntDesign name="hearto" size={24} color={colors.backgroundlight} style={styles.icon}/>
+      <TouchableOpacity onPress={() => setLiked(!liked)}>
+        <AntDesign
+          name={liked ? "heart" : "hearto"}
+          size={24}
+          color={liked ? colors.backgroundlight : colors.backgroundlight}
+          style={styles.icon}
+        />
+      </TouchableOpacity>
       <FontAwesome5 name="comment-alt" size={22} color={colors.backgroundlight} style={styles.icon}/>
-      <Text style={styles.textgenaral}>Liked by {likenumbers} users</Text>
+    </View>
+    
+    <View style={styles.userinformationContainer}>
+      <Text style={styles.textsmall}>{likenumbers} likes</Text>
+      <Text style={styles.textsmall}>{commentsnumbers} comments</Text>
     </View>
     <Text style={styles.describe}>{describe}</Text>
       {/* <View style={styles.othercomments}>
@@ -90,7 +103,13 @@ const styles = StyleSheet.create({
   },
   icon:{
     marginLeft:10,
-    marginRight:15,
+    marginRight:20,
+  },
+  textsmall:{
+    fontSize:11,
+    color:colors.fontcolortitle,
+    marginBottom:10,
+    margin:10,
   },
   textgenaral:{
     fontSize:14,
@@ -99,7 +118,7 @@ const styles = StyleSheet.create({
   },
   describe:{
     fontSize:14,
-    color:colors.fontcolortitle,
+    color:colors.fontcolorpost,
     paddingLeft: 10, 
     flexDirection: 'row',
     justifyContent: 'flex-start',
